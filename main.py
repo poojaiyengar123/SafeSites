@@ -76,8 +76,8 @@ except:
 
 #budget
 try: 
-    startBudget = st.number_input("Lower Bound of Budget", min_value=1)
-    endBudget = st.number_input("Upper Bound of Budget", min_value=1)
+    startBudget = st.number_input("Lower Bound of Budget", min_value=0, step=100)
+    endBudget = st.number_input("Upper Bound of Budget", min_value=0, step=100)
     startBudget, endBudget = st.slider("Range of Budget", value=[0, 1000000])
 except:
     pass
