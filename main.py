@@ -114,8 +114,10 @@ except:
     pass
 
 #submit button
-if st.link_button("Search", url="https://docs.streamlit.io/library/api-reference/widgets/st.link_button", type="primary"):
-    print('yay')
+map = {} #dictionary with all the information inputed by user
+if st.button("Search", type="primary"):
+    map.update([('state', state_chosen), ('county', county_chosen), ('num_of_adults', adults), ('num_of_children', children), ('num_of_infants', infants), ('num_of_pets', pets), ('baths', numOfBaths), ('beds', numOfBeds), ('budget_lower', startBudget), ('budget_upper', endBudget), ('check_in', start_date), ('check_out', end_date)])
+
 
 # data = pd.read_csv("crime_data_by_county_edited.csv")
 
