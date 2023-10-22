@@ -56,11 +56,12 @@ with countyCol:
         pass
 
 #number of people on the property
+adultCol, childCol, infantCol, petCol = st.column(4)
 try:
-    adults = int(st.number_input("Number of Adults", min_value=1, step=1))
-    children = int(st.number_input("Number of Children", min_value=0, step=1))
-    infants = int(st.number_input("Number of Infants", min_value=0, step=1))
-    pets = int(st.number_input("Number of Pets", min_value=0, step=1))
+    adultCol.adults = int(st.number_input("Number of Adults", min_value=1, step=1))
+    childCol.children = int(st.number_input("Number of Children", min_value=0, step=1))
+    infantCol.infants = int(st.number_input("Number of Infants", min_value=0, step=1))
+    petCol.pets = int(st.number_input("Number of Pets", min_value=0, step=1))
 except:
     pass
 
