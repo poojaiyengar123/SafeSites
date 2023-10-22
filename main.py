@@ -134,8 +134,28 @@ listings = pd.read_csv("trial.csv")
 #sort listings
 listings = sorted(listings, key = lambda x: x[len(listings)-1])
 print(listings)
-df = pd.DataFrame(columns=["Name", "Address", "Price per Night", "Total Price", "Safety"])
-st.dataframe(df)
+df = pd.DataFrame(
+    {
+        
+        "Place": listings[0],
+        "url": "www.google.com",
+        "Address": [],
+        "Price Per Night": [],
+        "Total Price": [],
+        "Safety Rating": [],
+    }
+)
+st.dataframe(df, 
+             column_config={
+                "Place": "Name",
+                "url": st.column_config.LinkColumn("Link"),
+                "Safety Rating": st.column_config.NumberColumn(
+                    "Safety Rating",
+                    format="%d ⭐",
+                ),
+                "Price Per Night": st.column_config.NumberColumn("Price Per Night"),
+                "Total Price": st.column_config.NumberColumn("Total Price"),
+             })
         
 check_in_date = query.get("check_in").strftime("%Y-%m-%d")
 check_out_date = query.get("check_out").strftime("%Y-%m-%d")
