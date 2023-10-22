@@ -119,7 +119,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     pass
 with col2:
-    if (st.button ("Search", type="primary", layout="wide")):
+    if (st.link_button("Search", url="", type="primary", use_container_width="true")):
         print('yay')
 with col3:
     pass
