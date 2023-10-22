@@ -2,19 +2,28 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import datetime
+import csv
 
 # full block = lxq01kf l1tup9az dir dir-ltr
 # text info class = g1qv1ctd c1v0rf5q dir dir-ltr
 # title class = t1jojoys dir dir-ltr
-# info blocks class = fb4nyux s1cjsi4j dir dir-ltr
+# info blocks class = 
+# 
+# 
+# 
+# fb4nyux s1cjsi4j dir dir-ltr
 # beds class = 
 # price class = a8jt5op dir dir-ltr
 # image div = m1v28t5c dir dir-ltr
 # image class = itu7ddv i1mla2as i1cqnm0r dir dir-ltr
 # ratings class = r1dxllyb dir dir-ltr
 
-query = {}
-query.update([('state', 'NJ'), ('county', 'South Brunswick'), ('num_of_adults', 1), ('num_of_children', 2), ('num_of_infants', 0), ('num_of_pets', 1), ('baths', None), ('beds', None), ('budget_lower', 50), ('budget_upper', 1000), ('check_in', datetime.date(2023, 10, 22)), ('check_out', datetime.date(2023, 10, 24))])
+# query = {}
+# query.update([('state', 'NJ'), ('county', 'South Brunswick'), ('num_of_adults', 1), ('num_of_children', 2), ('num_of_infants', 0), ('num_of_pets', 1), ('baths', None), ('beds', None), ('budget_lower', 50), ('budget_upper', 1000), ('check_in', datetime.date(2023, 10, 22)), ('check_out', datetime.date(2023, 10, 24))])
+
+us_cities_csv = "us_cities.csv"
+reader = csv.reader(us_cities_csv)
+
 
 check_in_date = query.get("check_in").strftime("%Y-%m-%d")
 check_out_date = query.get("check_out").strftime("%Y-%m-%d")
@@ -73,7 +82,8 @@ state_codes = {
     'WI': 'Wisconsin',
     'WY': 'Wyoming'
 }
-state = state_codes.get(query.get("state")).replace(" ", "-")
+code = query.get("state")
+state = state_codes.get(code).replace(" ", "-")
 
 URL = f"https://www.airbnb.com/s/{county}--{state}/homes?adults={query.get('num_of_adults')}&children={query.get('num_of_children')}&infants={query.get('num_of_infants')}&pets={query.get('num_of_pets')}&price_min={query.get('budget_lower')}&price_max={query.get('budget_upper')}&checkin={check_in_date}&checkout={check_out_date}"
 page = requests.get(URL)
@@ -92,24 +102,23 @@ for result in results:
         price = price_div.find("span", class_="_tyxjp1")
     else:
         price = price_div.find("span", class_="_1y74zjx")
+    price_print = re.search("\$\d{1,3}(?:,\d{3})*\s*total", price_div.text).group() +" before tax"
+
     ratings = text_info.find("span", class_="r1dxllyb dir dir-ltr")
 
     image_div = result.find("div", class_="m1v28t5c dir dir-ltr")
     image = image_div.find("img", class_="itu7ddv i1mla2as i1cqnm0r dir dir-ltr")
-    
-    # print(image.get('src'))
-    # print(title.text)
-    # print(desc.text)
-    # print(beds.text)
-    # print(re.search("\$\d{1,3}(?:,\d{3})*\s*total", price_div.text).group() +" before tax")
-    # if (ratings != None):
-    #     print(ratings.text)
 
-    price_print = re.search("\$\d{1,3}(?:,\d{3})*\s*total", price_div.text).group() +" before tax"
-    list_of_places.append([image.get('src'), title.text, desc.text, beds.text, price_print])
+    link = image_div.find_all('a')
+    hyperlink = "https://airbnb.com"+link[0].get('href')
+
+    location = title.text.split("in", 1)[1].strip()
+    if ("Township" in location):
+        location = None
+
+    list_of_places.append([hyperlink, location, image.get('src'), title.text, desc.text, beds.text, price_print])
     if(ratings != None):
         list_of_places[-1].append(ratings.text)
-    print()
 
 # for place in list_of_places:
 #     for item in place:
