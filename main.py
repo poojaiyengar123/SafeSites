@@ -7,6 +7,7 @@ from PIL import Image
 
 logo = Image.open("logo.png")
 st.markdown('<p style="text-align: center;">' +
+    '<a href="https://safesites.streamlit.app/">' +
     '<img src="logo.png" ' +
     'style="display: block; margin: auto;" width="300" />' +
     '</p>', unsafe_allow_html=True)
