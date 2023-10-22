@@ -81,31 +81,38 @@ with petCol:
     except:
         pass
 
-
-#number of bedrooms required
-numOfBeds = int(st.number_input("Number of Beds", min_value=1, step=1))
-
-#number of bathrooms
-numOfBaths = int(st.number_input("Number of Baths", min_value=1, step=1))
+#number of beds & baths required
+bedCol, bathCol = st.columns(2)
+with bedCol:
+    numOfBeds = int(st.number_input("Number of Beds", min_value=1, step=1))
+with bathCol:
+    numOfBaths = int(st.number_input("Number of Baths", min_value=1, step=1))
 
 #dates
-try: 
-    startDate = st.date_input("Check-in Date", "today")
-except:
-    pass
+date1, date2 = st.columns(2)
 
-try:
-    endDate = st.date_input("Check-out Date", "today")
-except:
-    pass
+with date1: 
+    try: 
+        startDate = st.date_input("Check-in Date", "today")
+    except:
+        pass
+with date2:
+    try:
+        endDate = st.date_input("Check-out Date", "today")
+    except:
+        pass
 
 #budget
+lowerBud, upperBud = st.columns(2)
 try: 
-    startBudget = st.number_input("Lower Bound of Budget", min_value=0, step=100)
-    endBudget = st.number_input("Upper Bound of Budget", min_value=0, step=100)
+    with lowerBud:
+        startBudget = st.number_input("Lower Bound of Budget", min_value=0, step=100)
+    with upperBud: 
+        endBudget = st.number_input("Upper Bound of Budget", min_value=0, step=100)
     startBudget, endBudget = st.slider("Range of Budget", value=[0, 1000000])
 except:
     pass
+
 
 # data = pd.read_csv("crime_data_by_county_edited.csv")
 
