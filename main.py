@@ -115,10 +115,11 @@ except:
 
 #submit button
 col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3)
 with col1:
     pass
 with col2:
-    if (st.button ("Search", type="primary") ):
+    if (st.button ("Search", type="primary", layout="wide")):
         print('yay')
 with col3:
     pass
