@@ -1,23 +1,23 @@
-county,state,crime rate,lat,lon
-Abilene,TX,2422.8,,
-Akron,OH,2424.2,,
-Albany,GA,4105.7,,
-Albany-Lebanon,OR,2277.8,,
-Albany-Schenectady-Troy,NY,2004,,
-Albuquerque,NM,1043.4,,
-Alexandria,LA,5387.9,,
-Altoona,PA,1573.5,,
-Amarillo,TX,3819.9,,
-Ames,IA,1595.9,,
+County ,State,Crime Rate,lat,lon
+Abilene,TX,2422.8,32.454,-99.734
+Akron,OH,2424.2,41.081,-81.519
+Albany,GA,4105.7,31.578,-84.156
+Albany-Lebanon,OR,2277.8,44.556,-123.061
+Albany-Schenectady-Troy,NY,2004,42.757,-73.780
+Albuquerque,NM,1043.4,35.084,-106.650
+Alexandria,LA,5387.9,-33.891,151.214
+Altoona,PA,1573.5,40.516,-78.401
+Amarillo,TX,3819.9,35.207,-101.832
+Ames,IA,1595.9,42.027,-93.617
 Anchorage,AK,5513.6,61.1508,-149.1091
-Ann Arbor,MI,2005.3,,
-Appleton,WI,1252.9,,
-Asheville,NC,3079.2,,
-Atlantic City-Hammonton,NJ,2655.2,,
-Augusta-Richmond County,GA,2839.9,,
-Austin-Round Rock-Georgetown,TX,2697.1,,
-Bakersfield,CA,3923.8,,
-Baltimore-Columbia-Towson,MD,3057.2,,
+Ann Arbor,MI,2005.3,42.268,-83.731
+Appleton,WI,1252.9,44.261,-88.407
+Asheville,NC,3079.2,35.595,-82.553
+Atlantic City-Hammonton,NJ,2655.2,39.629,-74.851
+Augusta-Richmond County,GA,2839.9,33.471,-81.975
+Austin-Round Rock-Georgetown,TX,2697.1,30.633,-97.677
+Bakersfield,CA,3923.8,35.374,-119.019
+Baltimore-Columbia-Towson,MD,3057.2,39.228,-76.638
 Bangor,ME,1601.4,,
 Barnstable Town,MA,1280.6,,
 Baton Rouge,LA,3871,,
