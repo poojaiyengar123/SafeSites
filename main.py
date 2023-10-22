@@ -6,7 +6,9 @@ import pydeck as pdk
 from PIL import Image
 
 logo = Image.open("logo.png")
-st.image(logo)
+col1, col2 = st.columns(2)
+with col2:
+    st.image(logo)
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
 print(data)
