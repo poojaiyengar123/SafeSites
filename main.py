@@ -9,6 +9,8 @@ logo = Image.open("logo.png")
 col1, col2, col3 = st.columns(2)
 with col2:
     st.image(logo)
+with col3:
+    pass
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
 print(data)
