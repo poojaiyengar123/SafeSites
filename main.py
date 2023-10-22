@@ -65,7 +65,7 @@ with adultCol:
 
 with childCol:
     try:
-        children = int(st.number_input("Number of Children", min_value=1, step=1))
+        children = int(st.number_input("Number of Children", min_value=0, step=1))
     except:
         pass
 
