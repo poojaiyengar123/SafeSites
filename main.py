@@ -15,22 +15,54 @@ with col2:
     st.image(logo)
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
-print(data)
-# st.line_chart(data)
-df = pd.DataFrame(data)
+counties_data = pd.read_csv("us_counties.csv")
+
+all = []
+csv_file = open('crime_data_by_county_edited.csv')
+reader = csv.reader(csv_file)
+
+row0 = next(reader)
+row0.append('lat')
+row0.append('lon')
+all.append(row0)
+
+for item in reader:
+    file2 = open('us_counties.csv')
+    reader2 = csv.reader(file2)
+    row2 = next(reader2)
+    county = item[0]
+    state = item[1]
+    lat = ''
+    lon = ''
+    for item2 in reader2:
+        if item2[0] == county and item2[4] == state:
+            lat = item2[6]
+            lon = item2[7]
+    item.append(lat)
+    item.append(lon)
+    all.append(item)
+
+with open('crime_data_by_county_edited.csv', 'w') as result:
+    writer = csv.writer(result, lineterminator='\n')
+    writer.writerows(all)
+
+data = pd.read_csv("crime_data_by_county_edited.csv")
+
+# link back to https://simplemaps.com/data/us-counties in prod
+
 st.pydeck_chart(pdk.Deck(
     map_style=None, 
     initial_view_state=pdk.ViewState(
         latitude=39.83, 
         longitude=-98.58,
-        zoom=3,
+        zoom=1,
         pitch=50,
     ), 
     layers=[
         pdk.Layer(
             'ScatterplotLayer',
             data=data,
-            get_position='[lon, lat]',
+            get_position='[lat, lon]',
             get_color='[200, 30, 0, 160]',
             get_radius=200,
         )
