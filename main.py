@@ -113,6 +113,9 @@ try:
 except:
     pass
 
+#submit button
+if (st.button ("Search", type="primary") ):
+    print('yay')
 
 # data = pd.read_csv("crime_data_by_county_edited.csv")
 
