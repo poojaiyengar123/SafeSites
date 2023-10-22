@@ -34,7 +34,7 @@ for i, row in data.iterrows():
         stateList.index(row[1])
     except:
         stateList.append(row[1])
-        
+stateList.sort()
 stateChosen = st.selectbox("State", stateList)
 
 #choosing a county
@@ -55,7 +55,14 @@ except:
 
 
 #number of people on the property
-numOfPeople = int(st.number_input("Number of Guests", min_value=1, step=1))
+try:
+    adults = int(st.number_input("Number of Adults", min_value=1, step=1))
+    children = int(st.number_input("Number of Children", min_value=1, step=1))
+    infants = int(st.number_input("Number of Infants", min_value=1, step=1))
+    pets = int(st.number_input("Number of Pets", min_value=1, step=1))
+except:
+    pass
+
 
 #number of bedrooms required
 numOfBeds = int(st.number_input("Number of Beds", min_value=1, step=1))
@@ -79,12 +86,6 @@ try:
     startBudget = st.number_input("Lower Bound of Budget", min_value=0, step=100)
     endBudget = st.number_input("Upper Bound of Budget", min_value=0, step=100)
     startBudget, endBudget = st.slider("Range of Budget", value=[0, 1000000])
-except:
-    pass
-
-#pet
-try: 
-    pet = st.slider("Pets", value=[0, 10])
 except:
     pass
 
