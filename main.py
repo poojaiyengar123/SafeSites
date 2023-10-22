@@ -27,30 +27,28 @@ st.pydeck_chart(pdk.Deck(
     ],
 ))
 
-#choosing a state
-stateList = []
-for i, row in data.iterrows():
-    try :
-        stateList.index(row[1])
-    except:
-        stateList.append(row[1])
-stateList.sort()
-stateChosen = st.selectbox("State", stateList)
+stateCol, countyCol = st.columns(2)
+with stateCol: 
+    #choosing a state
+    stateList = []
+    for i, row in data.iterrows():
+        try :
+            stateList.index(row[1])
+        except:
+            stateList.append(row[1])
+    stateList.sort()
+    stateChosen = st.selectbox("State", stateList)
 
-#choosing a county
-countyList = []
-for i, row in data.iterrows():
-    try :
-        if row[1].__eq__(stateChosen): 
-            countyList.append(row[0])
-    except:
-        pass
-
-try:
-    countyChosen = st.selectbox("County", countyList)
-except:
-    pass
-
+with countyCol:
+    #choosing a county
+    countyList = []
+    for i, row in data.iterrows():
+        try :
+            if row[1].__eq__(stateChosen): 
+                countyList.append(row[0])
+        except:
+            pass
+    countyList.sort()
 
 #number of people on the property
 try:
