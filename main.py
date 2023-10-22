@@ -24,7 +24,7 @@ stateChosen = st.radio("State", stateList)
 countyList = []
 for i, col in data.iterrows():
     try :
-        data[r].index(stateChosen)
+        data[i].index(stateChosen)
         #if doesn't throw exception, it has the state
         countyList.append(data[i][col])
         print(countyList)
