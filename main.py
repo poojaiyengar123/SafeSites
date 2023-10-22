@@ -2,51 +2,59 @@ import csv as csv
 import streamlit as st
 # import matplotlib.pyplot as plt
 import pandas as pd
+import pydeck as pdk
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
+print(data)
+st.line_chart(data)
+df = pd.DataFrame(data)
+st.pydeck_chart(pdk.Deck(map_style=None, initial_view_state=pdk.ViewState(latitude=37.76, longitude=-122.4,zoom=11,pitch=50,), layers=[],))
 
-def toString(list):
-    print(list)
-    str = ""
-    for i, row in data.iterrows():
-        str += row[i]
 
-#choosing a state
-stateList = []
-for i, row in data.iterrows():
-    try :
-        stateList.index(row[1])
-    except:
-        stateList.append(row)
+# data = pd.read_csv("crime_data_by_county_edited.csv")
 
-stateChosen = st.radio("State", stateList)
+# def toString(list):
+#     print(list)
+#     str = ""
+#     for i, row in data.iterrows():
+#         str += row[i]
 
-#choosing a county
-countyList = []
-for i, row in data.iterrows():
-    try :
-        row.index(stateChosen)
-        #if doesn't throw exception, it has the state
-        countyList.append(row[0])
-    except:
-        pass
+# #choosing a state
+# stateList = []
+# for i, row in data.iterrows():
+#     try :
+#         stateList.index(row[1])
+#     except:
+#         stateList.append(row)
 
-countyChosen = st.radio("County", countyList)
+# stateChosen = st.radio("State", stateList)
 
-#number of people on the property
-numOfPeople = st.number_input("Number of Guests")
-#number of bedrooms required
-numOfBeds = st.number_input("Number of Beds")
+# #choosing a county
+# countyList = []
+# for i, row in data.iterrows():
+#     try :
+#         row.index(stateChosen)
+#         #if doesn't throw exception, it has the state
+#         countyList.append(row[0])
+#     except:
+#         pass
 
-#dates
-startDate = st.date_input("Starting Date", "today")
-endDate = st.date_input("End Date", "today")
+# countyChosen = st.radio("County", countyList)
 
-#budget
-startBudget, endBudget = st.slider("Range of budget", value=[0, 1000000])
+# #number of people on the property
+# numOfPeople = st.number_input("Number of Guests")
+# #number of bedrooms required
+# numOfBeds = st.number_input("Number of Beds")
 
-#pet
-pet = st.slider("Pets", value=[0, 10])
+# #dates
+# startDate = st.date_input("Starting Date", "today")
+# endDate = st.date_input("End Date", "today")
+
+# #budget
+# startBudget, endBudget = st.slider("Range of budget", value=[0, 1000000])
+
+# #pet
+# pet = st.slider("Pets", value=[0, 10])
 
 # import pandas as pd
 # import streamlit as st
