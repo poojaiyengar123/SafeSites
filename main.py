@@ -254,7 +254,7 @@ for result in results:
 
 
 #printing each listing
-listings = pd.read
+# listings = pd.read
 
 # for place in list_of_places:
 #     for item in place:
