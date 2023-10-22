@@ -125,35 +125,7 @@ query = {} #dictionary with all the information inputed by user
 if st.button("Search", type="primary"):
     query.update([('state', state_chosen), ('county', county_chosen), ('num_of_adults', adults), ('num_of_children', children), ('num_of_infants', infants), ('num_of_pets', pets), ('baths', numOfBaths), ('beds', numOfBeds), ('budget_lower', startBudget), ('budget_upper', endBudget), ('check_in', start_date), ('check_out', end_date)])
 
-#trial - to delete
-#printing each listing
-listings = pd.read_csv("trial.csv")
-#sort listings
-listings = sorted(listings, key = lambda x: x[len(listings)-1])
-print(listings)
-df = pd.DataFrame(
-    {
-        
-        "Place": listings[0],
-        "url": "www.google.com",
-        "Address": [],
-        "Price Per Night": [],
-        "Total Price": [],
-        "Safety Rating": [],
-    }
-)
-st.dataframe(df, 
-             column_config={
-                "Place": "Name",
-                "url": st.column_config.LinkColumn("Link"),
-                "Safety Rating": st.column_config.NumberColumn(
-                    "Safety Rating",
-                    format="%d ⭐",
-                ),
-                "Price Per Night": st.column_config.NumberColumn("Price Per Night"),
-                "Total Price": st.column_config.NumberColumn("Total Price"),
-             })
-        
+
 check_in_date = query.get("check_in").strftime("%Y-%m-%d")
 check_out_date = query.get("check_out").strftime("%Y-%m-%d")
 county = query.get("county").replace(" ", "-")
