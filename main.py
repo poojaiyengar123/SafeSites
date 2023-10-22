@@ -114,15 +114,8 @@ except:
     pass
 
 #submit button
-col1, col2, col3 = st.columns(3)
-col1, col2, col3 = st.columns(3)
-with col1:
-    pass
-with col2:
-    if (st.link_button("Search", url="https://docs.streamlit.io/library/api-reference/widgets/st.link_button", type="primary")):
-        print('yay')
-with col3:
-    pass
+if st.link_button("Search", url="https://docs.streamlit.io/library/api-reference/widgets/st.link_button", type="primary"):
+    print('yay')
 
 # data = pd.read_csv("crime_data_by_county_edited.csv")
 
