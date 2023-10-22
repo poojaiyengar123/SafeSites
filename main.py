@@ -5,7 +5,7 @@ import pandas as pd
 import pydeck as pdk
 from PIL import Image
 import requests
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 import re
 import datetime
 
@@ -221,6 +221,25 @@ for result in results:
     if(ratings != None):
         list_of_places[-1].append(ratings.text)
     print()
+
+#trial - to delete
+def print_options (option):
+    col1, col2 = st.columns(2)
+    with col1:
+        pass
+        # st.image(Image.open(option[0]))
+    with col2:
+        st.header(option[1])
+        st.text(option[2])
+        st.divider()
+        st.caption(str(option[3]), "per night")
+        st.subheader("Total: ", str(option[4]))
+        st.divider()
+        st.caption(str(option[5]))
+
+
+#printing each listing
+listings = pd.read
 
 # for place in list_of_places:
 #     for item in place:
