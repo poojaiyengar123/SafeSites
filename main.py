@@ -50,6 +50,11 @@ with countyCol:
             pass
     countyList.sort()
 
+    try:
+        countyChosen = st.selectbox("County", countyList)
+    except:
+        pass
+
 #number of people on the property
 try:
     adults = int(st.number_input("Number of Adults", min_value=1, step=1))
