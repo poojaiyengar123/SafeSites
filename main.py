@@ -56,7 +56,7 @@ with countyCol:
         pass
 
 #number of people on the property
-adultCol, childCol, infantCol, petCol = st.column(4)
+adultCol, childCol, infantCol, petCol = st.columns(4)
 with adultCol:
     try:
         adults = int(st.number_input("Number of Adults", min_value=1, step=1))
