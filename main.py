@@ -1,6 +1,6 @@
 import csv as csv
 import streamlit as st
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import pandas as pd
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
