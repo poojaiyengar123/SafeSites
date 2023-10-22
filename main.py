@@ -17,9 +17,6 @@ with col2:
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
 
-# source: https://simplemaps.com/data/us-counties
-counties_data = pd.read_csv("us_counties.csv")
-
 st.pydeck_chart(pdk.Deck(
     map_style=None, 
     initial_view_state=pdk.ViewState(
