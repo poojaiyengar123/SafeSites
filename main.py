@@ -165,7 +165,7 @@ listings = pd.read_csv("trial.csv")
 #sort listings
 listings = sorted(listings, key = lambda x: x[len(listings)-1])
 print(listings)
-df = pd.DataFrame(listings)
+df = pd.DataFrame(columns=["Name", "Address", "Price per Night", "Total Price", "Safety"])
 st.dataframe(df)
         
 check_in_date = query.get("check_in").strftime("%Y-%m-%d")
