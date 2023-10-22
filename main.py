@@ -57,13 +57,29 @@ with countyCol:
 
 #number of people on the property
 adultCol, childCol, infantCol, petCol = st.column(4)
-try:
-    adultCol.adults = int(st.number_input("Number of Adults", min_value=1, step=1))
-    childCol.children = int(st.number_input("Number of Children", min_value=0, step=1))
-    infantCol.infants = int(st.number_input("Number of Infants", min_value=0, step=1))
-    petCol.pets = int(st.number_input("Number of Pets", min_value=0, step=1))
-except:
-    pass
+with adultCol:
+    try:
+        adults = int(st.number_input("Number of Adults", min_value=1, step=1))
+    except:
+        pass
+
+with childCol:
+    try:
+        children = int(st.number_input("Number of Children", min_value=1, step=1))
+    except:
+        pass
+
+with infantCol:
+    try:
+        infants = int(st.number_input("Number of Infants", min_value=0, step=1))
+    except:
+        pass
+
+with petCol:
+    try:
+        pets = int(st.number_input("Number of Pets", min_value=0, step=1))
+    except:
+        pass
 
 
 #number of bedrooms required
