@@ -19,6 +19,10 @@ data = pd.read_csv("crime_data_by_county_edited.csv")
 # source: https://simplemaps.com/data/us-counties
 counties_data = pd.read_csv("us_counties.csv")
 
+chart_data = pd.DataFrame(
+   np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+   columns=['lat', 'lon'])
+
 st.pydeck_chart(pdk.Deck(
     map_style=None, 
     initial_view_state=pdk.ViewState(
@@ -30,8 +34,8 @@ st.pydeck_chart(pdk.Deck(
     layers=[
         pdk.Layer(
            'HexagonLayer',
-           data=data,
-           get_position='[lat, lon]',
+           data=chart_data,
+           get_position='[lon, lat]',
            radius=200,
            elevation_scale=4,
            elevation_range=[0, 1000],
@@ -40,8 +44,8 @@ st.pydeck_chart(pdk.Deck(
         ),
         pdk.Layer(
             'ScatterplotLayer',
-            data=data,
-            get_position='[lat, lon]',
+            data=chart_data,
+            get_position='[lon, lat]',
             get_color='[200, 30, 0, 160]',
             get_radius=200,
         )
