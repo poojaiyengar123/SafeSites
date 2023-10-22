@@ -128,19 +128,13 @@ if st.button("Search", type="primary"):
     query.update([('state', state_chosen), ('county', county_chosen), ('num_of_adults', adults), ('num_of_children', children), ('num_of_infants', infants), ('num_of_pets', pets), ('baths', numOfBaths), ('beds', numOfBeds), ('budget_lower', startBudget), ('budget_upper', endBudget), ('check_in', start_date), ('check_out', end_date)])
 
 #trial - to delete
-def print_options (option):
-    col1, col2 = st.columns(2)
-    with col1:
-        pass
-        # st.image(Image.open(option[0]))
-    with col2:
-        st.header(option[1])
-        st.text(option[2])
-        st.divider()
-        st.caption(str(option[3]), "per night")
-        st.subheader("Total: ", str(option[4]))
-        st.divider()
-        st.caption(str(option[5]))
+#printing each listing
+listings = pd.read_csv("trial.csv")
+#sort listings
+listings = sorted(listings, key = lambda x: x[2])
+print(listings)
+df = pd.DataFrame(listings)
+st.dataframe(df)
         
 check_in_date = query.get("check_in").strftime("%Y-%m-%d")
 check_out_date = query.get("check_out").strftime("%Y-%m-%d")
