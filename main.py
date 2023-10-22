@@ -41,9 +41,8 @@ stateChosen = st.selectbox("State", stateList)
 countyList = []
 for i, row in data.iterrows():
     try :
-        row.index(stateChosen)
-        #if doesn't throw exception, it has the state
-        countyList.append(row[0])
+        if row[1].__eq__(stateChosen): 
+            countyList.append(row[0])
     except:
         pass
 
