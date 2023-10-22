@@ -105,11 +105,11 @@ with date2:
 #budget
 lowerBud, upperBud = st.columns(2)
 try: 
+    startBudget, endBudget = st.slider("Range of Budget", value=[0, 1000000])
     with lowerBud:
         startBudget = st.number_input("Lower Bound of Budget", min_value=0, step=100)
     with upperBud: 
-        endBudget = st.number_input("Upper Bound of Budget", min_value=0, step=100, value=1000000)
-    startBudget, endBudget = st.slider("Range of Budget", value=[0, 1000000])
+        endBudget = st.number_input("Upper Bound of Budget", min_value=0, step=100, max_value=1000000, value=1000000)
 except:
     pass
 
