@@ -43,7 +43,7 @@ for i, row in data.iterrows():
     try :
         row.index(stateChosen)
         #if doesn't throw exception, it has the state
-        countyList.append(row[2])
+        countyList.append(row[0])
     except:
         pass
 
@@ -56,9 +56,9 @@ except:
 #number of people on the property
 try:
     adults = int(st.number_input("Number of Adults", min_value=1, step=1))
-    children = int(st.number_input("Number of Children", min_value=1, step=1))
-    infants = int(st.number_input("Number of Infants", min_value=1, step=1))
-    pets = int(st.number_input("Number of Pets", min_value=1, step=1))
+    children = int(st.number_input("Number of Children", min_value=0, step=1))
+    infants = int(st.number_input("Number of Infants", min_value=0, step=1))
+    pets = int(st.number_input("Number of Pets", min_value=0, step=1))
 except:
     pass
 
