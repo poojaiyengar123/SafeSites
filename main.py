@@ -8,7 +8,7 @@ data = pd.read_csv("crime_data_by_county_edited.csv")
 print(data)
 # st.line_chart(data)
 df = pd.DataFrame(data)
-st.pydeck_chart(pdk.Deck(map_style=None, initial_view_state=pdk.ViewState(latitude=39.83, longitude=-98.58,zoom=1,pitch=50,), layers=[],))
+st.pydeck_chart(pdk.Deck(map_style=None, initial_view_state=pdk.ViewState(latitude=39.83, longitude=-98.58,zoom=5,pitch=50,), layers=[],))
 
 
 # data = pd.read_csv("crime_data_by_county_edited.csv")
