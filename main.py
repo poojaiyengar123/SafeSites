@@ -3,6 +3,9 @@ import streamlit as st
 # import matplotlib.pyplot as plt
 import pandas as pd
 import pydeck as pdk
+from PIL import Image
+
+logo = Image.open("logo.png")
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
 print(data)
