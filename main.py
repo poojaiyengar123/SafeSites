@@ -116,12 +116,12 @@ except:
 #submit button
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.write(' ')
+    pass
 with col2:
     if (st.button ("Search", type="primary") ):
         print('yay')
 with col3:
-    st.write(' ')
+    pass
 
 # data = pd.read_csv("crime_data_by_county_edited.csv")
 
