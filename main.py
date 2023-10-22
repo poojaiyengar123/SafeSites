@@ -6,7 +6,7 @@ import pydeck as pdk
 from PIL import Image
 
 logo = Image.open("logo.png")
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(2)
 with col2:
     st.image(logo)
 
