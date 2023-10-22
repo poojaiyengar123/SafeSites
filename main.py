@@ -6,11 +6,11 @@ import pydeck as pdk
 from PIL import Image
 
 logo = Image.open("logo.png")
-st.markdown('<p style="text-align: center;">' +
-    '<a href="https://safesites.streamlit.app/">' +
-    '<img src="logo.png" ' +
-    'style="display: block; margin: auto;" width="300" />' +
-    '</p>', unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
+with col2:
+    st.image(logo)
+with col3:
+    st.text(' ')
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
 print(data)
