@@ -127,10 +127,6 @@ query = {} #dictionary with all the information inputed by user
 if st.button("Search", type="primary"):
     query.update([('state', state_chosen), ('county', county_chosen), ('num_of_adults', adults), ('num_of_children', children), ('num_of_infants', infants), ('num_of_pets', pets), ('baths', numOfBaths), ('beds', numOfBeds), ('budget_lower', startBudget), ('budget_upper', endBudget), ('check_in', start_date), ('check_out', end_date)])
 
-check_in_date = query.get("check_in").strftime("%Y-%m-%d")
-check_out_date = query.get("check_out").strftime("%Y-%m-%d")
-county = query.get("county").replace(" ", "-")
-
 #trial - to delete
 def print_options (option):
     col1, col2 = st.columns(2)
@@ -145,6 +141,10 @@ def print_options (option):
         st.subheader("Total: ", str(option[4]))
         st.divider()
         st.caption(str(option[5]))
+        
+check_in_date = query.get("check_in").strftime("%Y-%m-%d")
+check_out_date = query.get("check_out").strftime("%Y-%m-%d")
+county = query.get("county").replace(" ", "-")
         
 state_codes = {
     'AL': 'Alabama',
