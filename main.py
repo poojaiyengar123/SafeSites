@@ -5,10 +5,27 @@ import pandas as pd
 import pydeck as pdk
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
-# print(data)
+print(data)
 # st.line_chart(data)
 df = pd.DataFrame(data)
-st.pydeck_chart(pdk.Deck(map_style=None, initial_view_state=pdk.ViewState(latitude=39.83, longitude=-98.58,zoom=3,pitch=50,), layers=[],))
+st.pydeck_chart(pdk.Deck(
+    map_style=None, 
+    initial_view_state=pdk.ViewState(
+        latitude=39.83, 
+        longitude=-98.58,
+        zoom=1,
+        pitch=50,
+    ), 
+    layers=[
+        pdk.Layer(
+            'ScatterplotLayer',
+            data=data,
+            get_position='[lon, lat]',
+            get_color='[200, 30, 0, 160]',
+            get_radius=200,
+        )
+    ],
+))
 
 #choosing a state
 stateList = []
