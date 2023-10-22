@@ -35,7 +35,7 @@ for i, row in data.iterrows():
     except:
         stateList.append(row[1])
 
-stateChosen = st.radio("State", stateList)
+stateChosen = st.selectbox("State", stateList)
 
 #choosing a county
 countyList = []
@@ -49,7 +49,7 @@ for i, row in data.iterrows():
         pass
 
 try:
-    countyChosen = st.radio("County", countyList)
+    countyChosen = st.selectbox("County", countyList)
 except:
     pass
 
@@ -76,9 +76,9 @@ except:
 
 #budget
 try: 
-    startBudget = st.number_input("Lower Bound of Budget")
-    endBudget = st.number_input("Upper Bound of Budget")
-    startBudget, endBudget = st.slider("Range of budget", value=[0, 1000000])
+    startBudget = st.number_input("Lower Bound of Budget", min_value=1)
+    endBudget = st.number_input("Upper Bound of Budget", min_value=1)
+    startBudget, endBudget = st.slider("Range of Budget", value=[0, 1000000])
 except:
     pass
 
