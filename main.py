@@ -34,7 +34,7 @@ for i, row in data.iterrows():
         stateList.index(row[1])
     except:
         stateList.append(row[1])
-stateList = stateList.sort()
+        
 stateChosen = st.selectbox("State", stateList)
 
 #choosing a county
