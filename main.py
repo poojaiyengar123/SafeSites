@@ -1,11 +1,11 @@
-import numpy as np
+toimport numpy as np
 import streamlit as st
 # import matplotlib.pyplot as plt
 import pandas as pd
 import pydeck as pdk
 from PIL import Image
 import requests
-from bs4 import BeautifulSoup
+from beautifulsoup4 import BeautifulSoup
 import re
 import datetime
 
