@@ -5,7 +5,7 @@ import pandas as pd
 import pydeck as pdk
 from PIL import Image
 import requests
-from beautifulsoup4 import BeautifulSoup
+from beautifulsoup import BeautifulSoup
 import re
 import datetime
 
