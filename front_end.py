@@ -3,29 +3,24 @@ import pandas as pd
 
 data = pd.read_csv("crime_data_by_county_edited.csv")
 
-def toString(list):
-    print(list)
-    str = ""
-    for i, row in data.iterrows():
-        str += row[i]
-
 #choosing a state
 stateList = []
 for i, row in data.iterrows():
     try :
         stateList.index(row[1])
     except:
-        stateList.append(row)
+        stateList.append(row[1])
 
 stateChosen = st.radio("State", stateList)
 
 #choosing a county
 countyList = []
-for i, row in data.iterrows():
+for i, col in data.iterrows():
     try :
-        row.index(stateChosen)
+        data[r].index(stateChosen)
         #if doesn't throw exception, it has the state
-        countyList.append(row[0])
+        countyList.append(data[i][col])
+        print(countyList)
     except:
         pass
 
