@@ -22,11 +22,11 @@ stateChosen = st.radio("State", stateList)
 
 #choosing a county
 countyList = []
-for i, col in data.iterrows():
+for i, row in data.iterrows():
     try :
         data[i].index(stateChosen)
         #if doesn't throw exception, it has the state
-        countyList.append(data[i][col])
+        countyList.append(data[i][row])
         print(countyList)
     except:
         pass
@@ -38,25 +38,29 @@ except:
 
 
 #number of people on the property
-numOfPeople = int(st.number_input("Number of Guests"))
+numOfPeople = int(st.number_input("Number of Guests", min_value=1, step=1))
+
 #number of bedrooms required
-numOfBeds = int(st.number_input("Number of Beds"))
+numOfBeds = int(st.number_input("Number of Beds", min_value=1, step=1))
+
+#number of bathrooms
+numOfBaths = int(st.number_input("Number of Baths", min_value=1, step=1))
 
 #dates
 try: 
-    startDate = st.date_input("Starting Date", "today")
+    startDate = st.date_input("Check-in Date", "today")
 except:
     pass
 
 try:
-    endDate = st.date_input("End Date", "today")
+    endDate = st.date_input("Check-out Date", "today")
 except:
     pass
 
 #budget
 try: 
-    startBudget = int(st.number_input("Lower Bound of Budget"))
-    endBudget = int(st.number_input("Upper Bound of Budget"))
+    startBudget = st.number_input("Lower Bound of Budget")
+    endBudget = st.number_input("Upper Bound of Budget")
     startBudget, endBudget = st.slider("Range of budget", value=[0, 1000000])
 except:
     pass
