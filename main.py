@@ -5,7 +5,7 @@ import pandas as pd
 import pydeck as pdk
 from PIL import Image
 import requests
-import requirements
+pip install -r requirements.txt
 from bs4 import BeautifulSoup
 import re
 import datetime
